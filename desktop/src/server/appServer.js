@@ -2,6 +2,7 @@ const express = require('express')
 
 class AppServer {
     #app
+    #connection
     #httpPort
 
     constructor(port) {
@@ -11,13 +12,14 @@ class AppServer {
     }
 
     start() {
-        this.#app.post('/new', (req, res) => {
-            
-        })
+        this.#connection = this.#app.listen(this.#httpPort)
+    }
 
-        this.#app.listen(this.#httpPort, () => {
-            console.log('123')
-        })
+    stop() {
+        if (this.#connection) {
+            this.#connection.close()
+            this.#connection = null
+        }        
     }
 }
 
