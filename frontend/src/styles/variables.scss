@@ -1,0 +1,20 @@
+$background-color: #FFF;
+
+$primary-text-color: #494D60;
+$primary-text-size: .8em;
+
+$secondary-text-color: #494D60;
+$secondary-text-size: .6em;
+
+$page-divider-thick: 1px;
+$page-divider-color: #A0D2EA;
+
+$section-divider-thick: 1px;
+$section-divider-color: #A0D2EA;
+
+//And some instances
+
+.primaryText {
+    font-size: $primary-text-size;
+    color: $primary-text-color;
+}
