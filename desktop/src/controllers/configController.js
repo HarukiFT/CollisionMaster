@@ -11,6 +11,7 @@ class ConfigController {
         if (result) {
             return res.sendStatus(200)
         }
+        
 
         return res.sendStatus(403)
     }
@@ -23,6 +24,14 @@ class ConfigController {
         }
 
         return res.sendStatus(403)
+    }
+
+    handlePing(req, res) {
+        if (this.#appServer.getStatus() != 2) {
+            return res.sendStatus(403)
+        }
+
+        res.sendStatus(200)
     }
 }
 
