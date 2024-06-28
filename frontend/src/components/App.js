@@ -1,9 +1,10 @@
+import Progress from "./Progress"
 import Settings from "./Settings"
 
 export default () => {
     return (
         <>
-            <div></div>
+            <Progress/>
             <Settings />
         </>
     )
