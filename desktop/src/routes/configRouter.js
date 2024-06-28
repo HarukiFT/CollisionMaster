@@ -20,6 +20,10 @@ class ConfigRouter extends RouterBase{
             configController.handleDisconnect(req, res)
         })
 
+        router.get('/ping', (req, res) => {
+            configController.handlePing(req, res)
+        })
+
         return router
     }
 }
