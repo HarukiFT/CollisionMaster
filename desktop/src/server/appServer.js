@@ -66,6 +66,11 @@ class AppServer {
         if (this.#status != 2 ) { return }
 
         this.#canvas = new Canvas(width, height)
+
+        MainWindow.getWindow().webContents.send('render:new_canvas', {
+            width,
+            height
+        })
         return true;
     }
 
@@ -73,6 +78,7 @@ class AppServer {
         if (this.#status != 2 || !this.#canvas) { return }
 
         this.#canvas.setPixel(x, y, depth)
+        MainWindow.getWindow().webContents.send('render:new_progress', this.#canvas.getProgress())        
         return true
     }
 }
