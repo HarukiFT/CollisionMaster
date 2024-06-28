@@ -4,6 +4,8 @@ $content-padding: 1em;
 $section-margin-bottom: .25em;
 
 .wrapper {
+    grid-column: 2/3;
+
     padding-top: $content-padding * .5;
 
     display: flex;
