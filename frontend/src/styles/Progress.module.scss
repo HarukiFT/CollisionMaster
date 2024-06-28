@@ -1,0 +1,65 @@
+@import './variables.scss';
+
+.wrapper {
+    grid-column: 1/2;
+
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: .5em;
+    border-right: 1px solid $page-divider-color;
+
+    overflow: auto;
+}
+
+.statusBar {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    padding: calc($primary-text-size * .5) 0;
+
+    border-radius: .5em;
+
+    overflow: hidden;
+
+    font-size: $primary-text-size;
+    font-weight: 500;
+
+    box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+
+    .fillBar {
+        position: absolute;
+        height: 100%;
+        left: 0;
+        top: 0;
+
+        background-color: rgb(47, 255, 89);
+        z-index: -1;
+    }
+}
+
+.canvasWrapper {
+    display: flex;
+    flex-direction: column;
+
+    flex-grow: 1;
+
+    width: 100%;
+
+    justify-content: center;
+    align-items: center;
+
+    .canvasHolder {
+        width: 50%;
+        aspect-ratio: 1;
+
+        border: solid 2px $section-divider-color;
+
+        cursor: grab;
+    }
+}
