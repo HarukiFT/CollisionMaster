@@ -1,5 +1,7 @@
 const { Router } = require("express")
 const RouterBase = require("./routerBase")
+const ConfigRouter = require("./configRouter")
+const RenderRouter = require("./renderRouter")
 
 class AppRouter extends RouterBase{
     constructor (appServer) {
@@ -7,7 +9,12 @@ class AppRouter extends RouterBase{
     }
 
     getRoutes() {
-        return Router()
+        const router = Router()
+
+        router.use('/config', new ConfigRouter(this._appServer).getRoutes())
+        router.use('/render', new RenderRouter(this._appServer).getRoutes())
+
+        return router
     }
 }
 
