@@ -55,13 +55,13 @@
     align-items: center;
 
     .canvasHolder {
-        width: 50%;
+        width: 65%;
         aspect-ratio: 1;
 
         border: solid 2px $section-divider-color;
 
         cursor: grab;
 
-        overflow: auto;
+        overflow: hidden;
     }
 }
