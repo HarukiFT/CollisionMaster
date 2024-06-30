@@ -61,5 +61,7 @@
         border: solid 2px $section-divider-color;
 
         cursor: grab;
+
+        overflow: auto;
     }
 }
