@@ -20,6 +20,11 @@ class RenderRouter extends RouterBase{
             renderController.handleSet(req, res)
         })
 
+        router.post('/multiset', (req, res) => {
+            console.log(req.body)
+            renderController.handleMultiset(req, res)
+        })
+
         return router
     }
 }
