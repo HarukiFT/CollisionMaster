@@ -6,6 +6,7 @@ const AppContextProvider = ({ children }) => {
     const [status, setStatus] = useState(0)
     const [metrics, setMetrics] = useState()
     const [progress, setProgress] = useState()
+    const [canvasData, setCanvasData] = useState()
 
     useEffect(() => {
         window.electron.onStatusUpdate((status) => {
@@ -18,6 +19,10 @@ const AppContextProvider = ({ children }) => {
 
         window.electron.onProgressUpdate((progress) => {
             setProgress(progress)
+        })
+
+        window.electron.onDataUpdate((data) => {
+            setCanvasData(data)
         })
     }, [])
 
@@ -36,7 +41,10 @@ const AppContextProvider = ({ children }) => {
         setMetrics,
         
         progress,
-        setProgress
+        setProgress,
+
+        canvasData,
+        setCanvasData
     }
 
     return (
