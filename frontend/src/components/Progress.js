@@ -1,15 +1,16 @@
 // Progress frame
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useAppContext } from '../contexts/AppContext'
 import Styles from '../styles/Progress.module.scss'
+import Canvas from './Canvas'
 
 export default () => {
     const appContext = useAppContext()
 
     useEffect(() => {
-
-    }, [appContext.metrics])
+        
+    }, [])
 
     return (
         <div className={Styles.wrapper}>
@@ -26,7 +27,9 @@ export default () => {
 
             <div className={Styles.canvasWrapper}>
                 <div className={Styles.canvasHolder}>
-
+                    {
+                        appContext.canvasData && <Canvas/>
+                    }
                 </div>
             </div>
         </div>
