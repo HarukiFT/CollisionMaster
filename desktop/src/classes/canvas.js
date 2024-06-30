@@ -4,6 +4,7 @@ class Canvas {
     #data
     #width
     #height
+    #settings
     #setted
 
     get width() {
@@ -14,10 +15,15 @@ class Canvas {
         return this.#height
     }
     
-    constructor (width, height) {
+    get data() {
+        return this.#data
+    }
+
+    constructor (width, height, settings) {
         this.#data = Array(height).fill().map(() => Array(width).fill());
         this.#height = height
         this.#width = width
+        this.#settings = settings
         this.#setted = 0
     }
 
