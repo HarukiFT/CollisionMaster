@@ -62,10 +62,10 @@ class AppServer {
         }        
     }
 
-    createCanvas(width, height) {
+    createCanvas(width, height, settings) {
         if (this.#status != 2 ) { return }
 
-        this.#canvas = new Canvas(width, height)
+        this.#canvas = new Canvas(width, height, settings)
 
         MainWindow.getWindow().webContents.send('render:new_canvas', {
             width,
@@ -78,7 +78,15 @@ class AppServer {
         if (this.#status != 2 || !this.#canvas) { return }
 
         this.#canvas.setPixel(x, y, depth)
-        MainWindow.getWindow().webContents.send('render:new_progress', this.#canvas.getProgress())        
+
+        const progress = this.#canvas.getProgress()
+
+        MainWindow.getWindow().webContents.send('render:new_progress', progress)       
+        
+        if (progress[0] == progress[1]) {
+            MainWindow.getWindow().webContents.send('app:canvas_data', this.#canvas.data)
+        }
+
         return true
     }
 }
